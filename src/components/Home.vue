@@ -2,17 +2,17 @@
   <div class="hello">
     <van-nav-bar
       title="黑马程序员.vant"
-      :left-text="flag==='true' ? '返回' : ''"
+      :left-text="flag===true ? '返回' : ''"
       :left-arrow="flag"
       @click-left="goBack"
     />
     <router-view />
 
     <van-tabbar v-model="active" v-show="showTabber">
-      <van-tabbar-item icon="home-o">标签</van-tabbar-item>
-      <van-tabbar-item icon="search">标签</van-tabbar-item>
-      <van-tabbar-item icon="friends-o" v-on:click="goShopCar">标签</van-tabbar-item>
-      <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
+      <van-tabbar-item icon="home-o">首页</van-tabbar-item>
+      <van-tabbar-item icon="friends-o">会员</van-tabbar-item>
+      <van-tabbar-item icon="shopping-cart-o" v-on:click="goShopCar">购物车</van-tabbar-item>
+      <van-tabbar-item icon="search">搜索</van-tabbar-item>
     </van-tabbar>
   </div>
 </template>
