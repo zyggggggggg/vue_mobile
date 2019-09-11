@@ -26,6 +26,7 @@ Vue.filter('dateFormat', function(originVal) {
 })
 
 
+
 new Vue({
   router,
   render: h => h(App)
