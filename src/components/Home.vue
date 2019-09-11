@@ -59,5 +59,10 @@ export default {
 <style scoped lang="less">
 .van-nav-bar {
   background: #1989fa;
+ 
+ 
+}
+.van-nav-bar van-hairline--bottom{
+  position: fixed;
 }
 </style>
