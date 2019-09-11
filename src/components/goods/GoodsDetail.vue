@@ -109,6 +109,7 @@ export default {
 <style lang="less" scoped>
 .mtp {
   margin-top: 40px;
+  margin-bottom: 50px;
 }
 img {
   width: 100%;

@@ -1,5 +1,5 @@
 <template>
-  <div class="mtp">
+  <div class="mtp" id="box">
     <van-card
       v-for="item in goodsList"
       :key="item.id"
@@ -49,6 +49,9 @@ export default {
 .mtp {
   margin-top: 40px;
   padding: 10px;
+}
+#box {
+  margin-bottom: 50px;
 }
 .van-card {
   padding: 0;

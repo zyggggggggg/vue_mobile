@@ -130,13 +130,11 @@ export default {
   height: 40px;
   line-height: 40px;
   background: #1989fa;
-<<<<<<< HEAD
  
  
 }
 .van-nav-bar van-hairline--bottom{
   position: fixed;
-=======
   font-size: 12px;
 }
 .slide-fade-enter-active {
@@ -150,6 +148,5 @@ export default {
 }
 .slide-fade-leave-to {
   opacity: 0;
->>>>>>> f36c071f9a7545201eee760288a67c94f49ee40e
 }
 </style>

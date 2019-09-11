@@ -1,9 +1,7 @@
-<<<<<<< HEAD
 .van-nav-bar__arrow,.van-nav-bar__text,.van-nav-bar__title{
     color: #fff !important
   }
  
-=======
 .van-nav-bar__arrow,
 .van-nav-bar__text,
 .van-nav-bar__title,
@@ -19,4 +17,3 @@
 .van-nav-bar__text {
   pointer-events: none;
 }
->>>>>>> f36c071f9a7545201eee760288a67c94f49ee40e

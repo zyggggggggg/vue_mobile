@@ -8,9 +8,6 @@ import ImageDetails from './components/photo/ImageDetails.vue'
 import Comments from './components/show/Comments.vue'
 import Goodsdesc from './components/show/Goodsdesc.vue'
 
-// 测试组件
-// import Test from './components/show/Test.vue'
-
 import GoodsList from './components/goods/GoodsList.vue'
 import GoodsDetail from './components/goods/GoodsDetail.vue'
 import Search from './components/Search.vue'
@@ -22,14 +19,7 @@ Vue.use(Router)
 export default new Router({
   routes: [
     { path: '/', redirect: '/index' },
-    {
-      path: '/goods/list',
-      component: GoodsList
-    },
-    {
-      path: '/goods/detail/:id',
-      component: GoodsDetail
-    },
+    
     {
       path: '/home', redirect: '/index', component: Home,
       children: [

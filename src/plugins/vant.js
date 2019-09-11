@@ -2,11 +2,6 @@ import Vue from 'vue'
 // 导入样式文件
 import 'vant/lib/index.css'
 
-import { Button, NavBar, Tabbar, TabbarItem,Tab,Tabs,Image, Lazyload,ImagePreview,Cell,List,CellGroup,Field,Row,Col} from 'vant'
-
-Vue.use(Button).use(NavBar).use(Tabbar).use(TabbarItem).use(Tab).use(Tabs).use(Image)
-.use(ImagePreview).use(Cell).use(List).use(CellGroup).use(Field).use(Row).use(Col)
-Vue.use(Lazyload);
 import {
   Button,
   NavBar,
@@ -14,31 +9,29 @@ import {
   TabbarItem,
   Divider,
   Card,
-  Stepper,
   SubmitBar,
   SwipeCell,
   Row,
   Col,
   List,
   Cell,
-  Notify,
   CellGroup,
   Search,
   Icon,
-  Field,
   Tag,
   Toast,
   Field,
   Loading,
   PullRefresh,
   Dialog,
-  Tabbar,
-  TabbarItem,
   Swipe,
   SwipeItem,
   Stepper,
   Notify,
-  SwipeCell
+  Tabs,
+  Tab,
+  Image,
+  Lazyload
 } from 'vant'
 
 Vue.use(Button)
@@ -68,3 +61,7 @@ Vue.use(Button)
   .use(Swipe)
   .use(SwipeItem)
   .use(Field)
+  .use(Tabs)
+  .use(Tab)
+  .use(Image)
+  .use(Lazyload)
