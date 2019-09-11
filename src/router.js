@@ -8,6 +8,9 @@ import Goodsdesc from './components/show/Goodsdesc.vue'
 
 // 测试组件
 // import Test from './components/show/Test.vue'
+import Search from './components/Search.vue'
+import AddGoods from './components/AddGoods.vue'
+import Member from './components/Member.vue'
 
 Vue.use(Router)
 
@@ -29,6 +32,18 @@ export default new Router({
         {
           path: '/shopcar',
           component: ShopCar
+        },
+        {
+          path: '/search',
+          component: Search
+        },
+        {
+          path: '/addgoods',
+          component: AddGoods
+        },
+        {
+          path: '/member',
+          component: Member
         },
         { path: '/goodscomments/:id', component: Comments },
         { path: '/goodsdesc/:id', component: Goodsdesc }

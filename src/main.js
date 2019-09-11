@@ -11,6 +11,7 @@ Vue.config.productionTip = false
 axios.defaults.baseURL = 'http://www.liulongbin.top:3005/'
 Vue.prototype.$http = axios
 
+<<<<<<< HEAD
 // 时间过滤器
 Vue.filter('dateFormat', function(originVal) {
   const dt = new Date(originVal)
@@ -25,6 +26,8 @@ Vue.filter('dateFormat', function(originVal) {
 
   return `${y}-${m}-${d} ${hh}:${mm}:${ss}`
 })
+=======
+>>>>>>> fc479a3652e61ed663750157fa207ceed5721f50
 
 new Vue({
   router,
