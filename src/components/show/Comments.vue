@@ -5,46 +5,61 @@
         <h4>发表评论</h4>
       </van-col>
     </van-row>
+    <!-- <van-divider :style="{ borderColor: '#1989fa'}"></van-divider> -->
     <hr />
-    <!-- 评论区域 -->
+    <!--  -->
     <van-cell-group>
-      <van-field v-model="writing" type="textarea" placeholder="请输入留言" rows="1" autosize />
+      <van-field v-model="writing"
+                 type="textarea"
+                 placeholder="请输入留言"
+                 rows="1"
+                 autosize />
     </van-cell-group>
     <!-- 评论 -->
-    <van-button type="info" @click="publish">发表评论</van-button>
-    <ul v-for="(item,i) in remarkList" :key="i" class="remarkBox">
-      <li>第{{i+1}}楼 &nbsp;&nbsp;用户:{{item.user_name}} 发表时间:{{item.add_time|dateForm}}</li>
+    <!-- <textarea placeholder="请输入留言"
+              id="remarkBox"
+              v-model="writing"></textarea> -->
+    <van-button type="info"
+                @click="publish">发表评论</van-button>
+    <ul v-for="(item,i) in remarkList"
+        :key="i"
+        class="remarkBox">
+      <li>第{{i+1}}楼 &nbsp;&nbsp;用户:{{item.user_name}} 发表时间:{{item.add_time|dateFormat}}</li>
       <div>{{item.content}}</div>
     </ul>
-    <van-button plain type="danger" class="btnStyle" @click="btnAll">加载更多</van-button>
+    <van-button plain
+                type="danger"
+                class="btnStyle"
+                @click="btnAll">加载更多</van-button>
   </div>
 </template>
+
 <script>
 export default {
-  data() {
+  data () {
     return {
       writing: '',
       remarkList: [],
       pageindex: 1
+
     }
   },
-  props: ['id'],
-  created() {
+  created () {
     this.getRemarkList()
   },
   methods: {
-    async getRemarkList() {
-      const { data: res } = await this.$http.get(`api/getcomments/${this.id}?pageindex=${this.pageindex}`)
+    async getRemarkList () {
+      const { data: res } = await this.$http.get(`api/getcomments/${this.$route.params.id}?pageindex=${this.pageindex}`)
 
       if (res.status !== 0) return false
       this.remarkList = res.message
       console.log(this.remarkList)
     },
-    async publish() {
+    async publish () {
       // 内容为空
       if (this.writing.trim() === '') return false
       // 内容不为空，发送请求 ${this.$route.params.id}
-      const { data: res } = await this.$http.post(`api/postcomment/${this.id}`, {
+      const { data: res } = await this.$http.post(`/api/postcomment/${this.$route.params.id}`, {
         //过滤敏感字
         content: this.writing.replace(/激情|gay/g, '**')
       })
@@ -56,9 +71,9 @@ export default {
       // 刷新数据
       this.getRemarkList()
     },
-    async btnAll() {
+    async btnAll () {
       this.pageindex++
-      const { data: res } = await this.$http.get(`api/getcomments/${this.id}?pageindex=${this.pageindex}`)
+      const { data: res } = await this.$http.get(`api/getcomments/${this.$route.params.id}?pageindex=${this.pageindex}`)
       // 判断请求是否成功
       if (res.status !== 0) return false
       // 追加数组
@@ -71,7 +86,6 @@ export default {
 
 <style lang="less" scoped>
 #ReBox {
-  bottom: 50px;
   margin-top: 40px;
   padding: 0 10px;
   position: relative;
@@ -103,5 +117,6 @@ li {
   width: 95%;
   // background-color: #1989fa;
   color: #fff;
+  bottom: 50px;
 }
 </style>
