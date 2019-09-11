@@ -8,6 +8,9 @@ import Goodsdesc from './components/show/Goodsdesc.vue'
 
 // 测试组件
 // import Test from './components/show/Test.vue'
+
+import GoodsList from './components/goods/GoodsList.vue'
+import GoodsDetail from './components/goods/GoodsDetail.vue'
 import Search from './components/Search.vue'
 import AddGoods from './components/AddGoods.vue'
 import Member from './components/Member.vue'
@@ -17,9 +20,18 @@ Vue.use(Router)
 export default new Router({
   routes: [
     {
+      path: '/goods/list',
+      component: GoodsList
+    },
+    {
+      path: '/goods/detail/:id',
+      component: GoodsDetail
+    },
+    {
       path: '/',
       redirect: '/index'
     },
+
     {
       path: '/home',
       redirect: '/index',
@@ -46,7 +58,15 @@ export default new Router({
           component: Member
         },
         { path: '/goodscomments/:id', component: Comments },
-        { path: '/goodsdesc/:id', component: Goodsdesc }
+        { path: '/goodsdesc/:id', component: Goodsdesc },
+        {
+          path: '/goods/list',
+          component: GoodsList
+        },
+        {
+          path: '/goods/detail/:id',
+          component: GoodsDetail
+        }
         // { path: '/test', component: Test }
       ]
     }
