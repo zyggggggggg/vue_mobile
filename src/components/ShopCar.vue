@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <van-swipe-cell v-for="item in shopList" :key="item.id">
+  <div class="shopCar">
+    <van-swipe-cell v-for="item in shopList" :key="item.id" :on-close="onClose">
       <van-card
         :num="item.cou"
         :price="item.sell_price"
@@ -13,7 +13,7 @@
       </van-card>
 
       <template slot="right">
-        <van-button square type="danger" text="删除" v-on:click="delItem" />
+        <van-button square type="danger" text="删除" />
       </template>
     </van-swipe-cell>
 
@@ -26,7 +26,8 @@ export default {
   data() {
     return {
       shopList: [],
-      sumPrice: 0
+      sumPrice: 0,
+      isLoading: false
     }
   },
   mounted() {
@@ -35,8 +36,12 @@ export default {
   methods: {
     async getShopList() {
       const { data: res } = await this.$http.get('/api/goods/getshopcarlist/87,88,89')
-      this.shopList = res.message
-      console.log(this.shopList)
+      if (res.status !== 0) {
+        this.$notify({ type: 'danger', message: '获取列表失败' })
+      } else {
+        this.shopList = res.message
+        console.log(this.shopList)
+      }
     },
     onSubmit() {
       this.$notify({ type: 'success', message: '提交成功' })
@@ -46,8 +51,31 @@ export default {
       this.shopList[index].cou = count
       console.log(this.shopList)
     },
+    onClose(clickPosition, instance) {
+      switch (clickPosition) {
+        case 'outside':
+          instance.close()
+          break
+        case 'right':
+          this.$dialog
+            .confirm({
+              message: '确定删除吗？'
+            })
+            .then(() => {
+              this.delItem()
+              instance.close()
+            })
+          break
+      }
+    },
     delItem() {
-        this.$notify({ type: 'success', message: '删除成功' })
+      this.$notify({ type: 'success', message: '删除成功' })
+    },
+    onRefresh() {
+      setTimeout(() => {
+        this.$toast('刷新成功')
+        this.isLoading = false
+      }, 500)
     }
   },
   computed: {
@@ -59,24 +87,14 @@ export default {
       return parseFloat(countSum * 100)
     }
   }
-  //   filters: {
-  //     //数据过滤器
-  //     priceFormat: function(value) {
-  //       if (!value) {
-  //         return 0
-  //       } else {
-  //         var intPart = Number(value).toFixed(0) // 获取整数部分
-  //         var intPartFormat = intPart.toString().replace(/(\d)(?=(?:\d{3})+$)/g, '$1,') // 将整数部分逢三一断
-  //         console.log(parseFloat(intPartFormat))
-  //         return parseFloat(intPartFormat)
-  //       }
-  //     }
-  //   }
 }
 </script>
 
 <style lang="less" scoped>
 .van-button {
-    height: 100%;
+  height: 100%;
+}
+.shopCar {
+  margin-top: 40px;
 }
 </style>
