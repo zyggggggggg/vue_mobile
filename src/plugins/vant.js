@@ -31,7 +31,9 @@ import {
   Tabs,
   Tab,
   Image,
-  Lazyload
+  Lazyload,
+  Grid,
+  GridItem
 } from 'vant'
 
 Vue.use(Button)
@@ -65,3 +67,5 @@ Vue.use(Button)
   .use(Tab)
   .use(Image)
   .use(Lazyload)
+  .use(Grid)
+  .use(GridItem)

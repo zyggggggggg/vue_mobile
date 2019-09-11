@@ -34,8 +34,8 @@ export default {
           name: "新闻资讯",
           path: "/newslist"
         },
-        { src: require("../assets/icon/share.png"), name: "图片分享" },
-        { src: require("../assets/icon/SHOPPINGBAG.png"), name: "商品购物" },
+        { src: require("../assets/icon/share.png"), name: "图片分享" ,path: '/index/photo'},
+        { src: require("../assets/icon/SHOPPINGBAG.png"), name: "商品购物", path: '/goods/list' },
         { src: require("../assets/icon/comment.png"), name: "留言反馈" },
         { src: require("../assets/icon/Video.png"), name: "视频专区" },
         { src: require("../assets/icon/telephone.png"), name: "联系我们" }

@@ -7,12 +7,13 @@ import Photo from './components/photo/Photo.vue'
 import ImageDetails from './components/photo/ImageDetails.vue'
 import Comments from './components/show/Comments.vue'
 import Goodsdesc from './components/show/Goodsdesc.vue'
-
 import GoodsList from './components/goods/GoodsList.vue'
 import GoodsDetail from './components/goods/GoodsDetail.vue'
 import Search from './components/Search.vue'
 import AddGoods from './components/AddGoods.vue'
 import Member from './components/Member.vue'
+import News from './components/News.vue'
+import NewsInfo from './components/NewsInfo.vue'
 
 Vue.use(Router)
 
@@ -48,7 +49,9 @@ export default new Router({
         {
           path: '/goods/detail/:id',
           component: GoodsDetail
-        }
+        },
+        { path: '/newslist', name: 'newslist', component: News },
+        { path: '/newsinfo/:id', name: 'newsinfo', component: NewsInfo }
   ]}
 ]
 })
